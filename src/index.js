@@ -11,9 +11,7 @@ ReactDOM.render(
     <React.StrictMode>
       <AuthProvider>
         <ChakraProvider resetCSS={false}>
-          <App> 
-            <script  src="https://apis.google.com/js/api.js"></script>
-          </App>
+          <App />
         </ChakraProvider>
       </AuthProvider>
     </React.StrictMode>
