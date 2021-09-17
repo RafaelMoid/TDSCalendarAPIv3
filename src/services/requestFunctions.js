@@ -29,6 +29,8 @@ export const fetchUserData = async (token) => {
   return data;
 };
 
+//Adicionando essas funcões/variaveis na intenção de resgatar Json
+
 export const fetchUserProjects = async (token) => {
   const { data } = await api("/projects/v1/project", {
     method: "GET",
@@ -39,6 +41,41 @@ export const fetchUserProjects = async (token) => {
   return data;
 };
 
+export const fetchMapById = async (token) => {
+  const {data} = await api("/projects/v1/project/60e481ee9692e14e21c51261",
+  {
+    method: "GET", 
+    headers: {
+      Authorization: `Bearer ${token}`,
+  },
+}).then(res=>{console.log(res.data)});
+ return data;
+};
+
+export const fetchEncounterByMaps = async (token) => {
+  const {data} = await api("/projects/v1/map/60e481ef9692e14e21c51262",
+  {
+    method: "GET", 
+    headers: {
+      Authorization: `Bearer ${token}`,
+  },
+}).then(res=>{console.log(res.data)});
+ return data;
+};
+
+export const fetchUserGetProjectById = async (token) => {
+  const { data } = await api("/projects/v1", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(res=>{console.log(res.data)});
+  return data;
+  
+};
+
+//New const for projects/v1/project/60e481ee9692e14e21c51261
+
 export const fetchUserEncouters = async (token) => {
   const { data } = await api("/projects/v1", {
     method: "GET",
@@ -47,8 +84,9 @@ export const fetchUserEncouters = async (token) => {
     },
   });
   return data;
-  console.log(data);
+  
 };
+
 
 export const createKit = async (values, token) => {
   const response = await api("/kits/v1/kit", {
