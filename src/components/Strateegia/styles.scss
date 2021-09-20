@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 80px;
   margin-top: 30px;
+  position: relative;
   section {
     display: flex;
     flex-direction: column;
@@ -27,13 +28,14 @@
         margin: 10% auto;
         text-align: center;
       }
-    }
+
+      
   }
 }
 
 @media screen and (min-width: 600px) {
   .sections-wrapper {
-    margin-top: 100px;
+    margin-top: 0px;
     section {
       .section-steps {
         flex-direction: row;
@@ -56,7 +58,7 @@
 
 @media screen and (min-width: 1024px) {
   .sections-wrapper {
-    margin-top: 100px;
+    margin-top: 0px;
     section {
       .section-steps {
         flex-direction: row;
@@ -72,6 +74,12 @@
           margin-left: 10%;
           text-align: unset;
         }
+        .bgImage {
+          position: absolute;
+          top: 0px;
+          right: 0px;
+        }
+      }
       }
     }
   }

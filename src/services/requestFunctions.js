@@ -37,7 +37,7 @@ export const fetchUserProjects = async (token) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  });
+  }).then(res=>{console.log(res.data)});
   return data;
 };
 
@@ -48,7 +48,7 @@ export const fetchMapById = async (token) => {
     headers: {
       Authorization: `Bearer ${token}`,
   },
-}).then(res=>{console.log(res.data)});
+})
  return data;
 };
 
@@ -59,9 +59,12 @@ export const fetchEncounterByMaps = async (token) => {
     headers: {
       Authorization: `Bearer ${token}`,
   },
-}).then(res=>{console.log(res.data)});
+})
  return data;
 };
+
+//const tdsEncontros = MapsData.filter( e => e.points); filter dos dados
+
 
 export const fetchUserGetProjectById = async (token) => {
   const { data } = await api("/projects/v1", {
@@ -77,14 +80,13 @@ export const fetchUserGetProjectById = async (token) => {
 //New const for projects/v1/project/60e481ee9692e14e21c51261
 
 export const fetchUserEncouters = async (token) => {
-  const { data } = await api("/projects/v1", {
+  const { dataKit } = await api("/projects/v1", {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
-  return data;
-  
+  return dataKit;
 };
 
 

@@ -5,12 +5,15 @@ import {
   // fetchUserProjects,
 } from "../../services/requestFunctions";
 import Navbar from "../Navbar";
+import Kits from "../Kits";
 
 import "./styles.scss";
 
 const Strateegia = () => {
   const [user, setUser] = useState({});
+  //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51) \/
   const [kitData, setKitData] = useState("");
+  //Retorno da linha 62 (aqui estão os pontos de encontro) \/
   const [MapsData, setMapsData] = useState("");
   // const [projects, setProjects] = useState([]);
   const auth = useContext(AuthContext);
@@ -33,19 +36,23 @@ const Strateegia = () => {
     // });
   }, [auth.apiToken]);
 
-  //Adicionando esse novo useEffect na esperança de resgatas os dados
+  //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51)
   useEffect(() => {
     fetchMapById(auth.apiToken).then((data) => {
-      setUser(data);
+      console.log(data);
+      setKitData(data);
     });
     // fetchUserProjects(auth.apiToken).then((data) => {
     //   setProjects(data);
     // });
   }, [auth.apiToken]);
 
+
+  //Retorno da linha 62 (aqui estão os pontos de encontro)
   useEffect(() => {
     fetchEncounterByMaps(auth.apiToken).then((data) => {
-      setUser(data);
+      console.log(data);
+      setMapsData(data);
     });
     // fetchUserProjects(auth.apiToken).then((data) => {
     //   setProjects(data);
@@ -54,14 +61,16 @@ const Strateegia = () => {
 
   useEffect(() => {
     fetchUserGetProjectById(auth.apiToken).then((data) => {
-      setUser(data);
+      setKitData(data);
     });
     // fetchUserProjects(auth.apiToken).then((data) => {
     //   setProjects(data);
     // });
   }, [auth.apiToken]);
 
+  
 
+  /*<img className="bgImage" src="Calendar_SVG 1.svg"/>  Imagem para adicionar na tela de logado*/
 
   return (
     <div>
@@ -69,11 +78,15 @@ const Strateegia = () => {
       <div className="sections-wrapper">
         <section className="topics-section">
           <div className="section-steps">
-            <p>Aqui estão todos os seus projetos na plataforma Strateegia. Selecione o projeto para agendar seus 
-pontos de conversação em sua Google Agenda.</p>
+            
+            <div className="pontosDeEncontroTemplate">
+                <Kits nomeMapa={kitData?.title} nomeEncontro={MapsData?.title} />
+            </div>
+            
+            
             
           </div>
-          <h1>Inserir aqui o grid</h1>
+          <h1>Inserir aqui o grid </h1>
 
           
 
