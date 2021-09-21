@@ -102,6 +102,7 @@
 }
 
 @media screen and (min-width: 720px) {
+  
   .login-container {
     display: flex;
     flex-direction: row;
@@ -130,5 +131,23 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 719px) {
+  
+  .informative{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+  }
+  .wellcomeP {
+    margin-left: 15%;
+    margin-top:-40%;
+  }
+  .titleTag {
+    max-height: 0px;
+    max-width: 0px;
+    display:none;
   }
 }

@@ -64,9 +64,9 @@ const Login = () => {
             
             <div className="informative">
               <div className="informative-texts">
-                <img src="datepicker.svg"/>
-                <h2>Bem Vindo!</h2>
-                <p>
+                <img className="titleTag" src="datepicker.svg"/>
+                <h2 className="titleTag">Bem Vindo!</h2>
+                <p className="wellcomeP">
                 Faça login para sincronizar seus pontos de encontro na plataforma
                 strateegia com sua google agenda automaticamente.
                 </p>

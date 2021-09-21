@@ -6,6 +6,7 @@ import {
 } from "../../services/requestFunctions";
 import Navbar from "../Navbar";
 import Kits from "../Kits";
+import Button from "../pontosDeEncontro";
 
 import "./styles.scss";
 
@@ -63,7 +64,8 @@ const Strateegia = () => {
       <Navbar username={user.name} />
 
             <div className="pontosDeEncontroTemplate">
-                <Kits nomeMapa={kitData?.title} nomeEncontro={MapsData?.title} />
+                <Kits nomeMapa={kitData?.title} dataEncontro={MapsData?.id} mapData={MapsData?.points}/>
+                
             </div>
 
         

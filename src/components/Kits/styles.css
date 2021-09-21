@@ -1,0 +1,22 @@
+.hexagon {
+    max-height: 80px;
+    max-width: 80px;
+    
+    
+}
+
+.hexagonTitle {
+    margin-left:4%;
+}
+
+.hexagonWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin-left:2%;
+
+}
+
+.hexagonWrapper ul {
+    list-style-type: none;
+}
