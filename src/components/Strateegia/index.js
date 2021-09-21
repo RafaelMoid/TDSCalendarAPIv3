@@ -60,15 +60,18 @@ const Strateegia = () => {
   /*<img className="bgImage" src="Calendar_SVG 1.svg"/>  Imagem para adicionar na tela de logado*/
 
   return (
-    <div>
+    
+    <div className="Wrapper">
       <Navbar username={user.name} />
-
+      <img className="image1" src="Calendar_SVG 1.svg" />
             <div className="pontosDeEncontroTemplate">
                 <Kits nomeMapa={kitData?.title} dataEncontro={MapsData?.id} mapData={MapsData?.points}/>
                 
             </div>
-
-        
+    
+      <footer className="footer">
+      Criadores: <a href="https://www.linkedin.com/in/rafaelvarelati/" target="_blank">Rafael Varela (Desenvolvedor fullstack)</a>, <a href="https://www.linkedin.com/in/diego-santos-ab17011b8/" target="_blank">Diego Santos (Ui/Ux Designer)</a> e <a href="https://www.linkedin.com/in/caroules/" target="_blank">Carolina Aguiar (Designer)</a>
+      </footer>    
 
     </div>
   );

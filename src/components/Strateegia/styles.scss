@@ -1,88 +1,51 @@
-.sections-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 80px;
-  margin-top: 30px;
-  position: relative;
-  section {
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #52B9A7;
+  color: white;
+  text-align: center;
+  a:link{
+    text-decoration: none;
+    color: white;
+  }
+  a:hover{
+    color: rgb(129, 20, 255);
+  }
+  a:visited{
+    color: white;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .Wrapper {
+    font-family: Rubik;
+    display: flex;
+      flex-direction: column;
+      width: 100%;
+      .image1{
+       
+        max-height: 0px;
+        max-width: 0px;
+        display:none;
+      }
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .Wrapper {
+    font-family: Rubik;
     display: flex;
     flex-direction: column;
-    .section-steps {
-      display: flex;
-      flex-direction: column;
-      span {
-        display: flex;
-        justify-content: center;
-        background-color: #dc0362;
-        color: #fff;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 700;
-      }
-      p {
-        color: #545151;
-        font-size: 3vh;
-        font-weight: 600;
-        width: 70%;
-        margin: 10% auto;
-        text-align: center;
-      }
-
-      
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .sections-wrapper {
-    margin-top: 0px;
-    section {
-      .section-steps {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 20px;
-        span {
-          border-radius: 0 20px 20px 0;
-          padding: 15px 20px 15px 70px;
-          font-size: 16px;
-        }
-        p {
-          font-size: 20px;
-          margin: 0;
-          text-align: unset;
-        }
-
-        
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .sections-wrapper {
-    margin-top: 0px;
-    section {
-      .section-steps {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 20px;
-        span {
-          border-radius: 0 20px 20px 0;
-          padding: 15px 20px 15px 170px;
-          font-size: 18px;
-        }
-        p {
-          font-size: 20px;
-          margin-left: 10%;
-          text-align: unset;
-        }
-        .bgImage {
-          position: absolute;
-          top: 0px;
-          right: 0px;
-        }
-      }
-      }
+    align-items: row;
+    .image1{
+      align-items:right;
+      justify-content:right;
+      max-height:200px;
+      max-width:200px;
     }
   }
 }
