@@ -11,6 +11,8 @@ import "./styles.scss";
 
 const Strateegia = () => {
   const [user, setUser] = useState({});
+  //Aqui está a chamada do valor de id para a função seguinte
+  const [idKitData, setIdKitData] = useState("");
   //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51) \/
   const [kitData, setKitData] = useState("");
   //Retorno da linha 62 (aqui estão os pontos de encontro) \/
@@ -27,14 +29,6 @@ const Strateegia = () => {
     // });
   }, [auth.apiToken]);
 
-  useEffect(() => {
-    fetchUserEncouters(auth.apiToken).then((data) => {
-      setUser(data);
-    });
-    // fetchUserProjects(auth.apiToken).then((data) => {
-    //   setProjects(data);
-    // });
-  }, [auth.apiToken]);
 
   //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51)
   useEffect(() => {
@@ -59,14 +53,6 @@ const Strateegia = () => {
     // });
   }, [auth.apiToken]);
 
-  useEffect(() => {
-    fetchUserGetProjectById(auth.apiToken).then((data) => {
-      setKitData(data);
-    });
-    // fetchUserProjects(auth.apiToken).then((data) => {
-    //   setProjects(data);
-    // });
-  }, [auth.apiToken]);
 
   
 
@@ -75,25 +61,13 @@ const Strateegia = () => {
   return (
     <div>
       <Navbar username={user.name} />
-      <div className="sections-wrapper">
-        <section className="topics-section">
-          <div className="section-steps">
-            
+
             <div className="pontosDeEncontroTemplate">
                 <Kits nomeMapa={kitData?.title} nomeEncontro={MapsData?.title} />
             </div>
-            
-            
-            
-          </div>
-          <h1>Inserir aqui o grid </h1>
 
-          
-
-          <h1>E O BOTÃO PARA JOGAR OS OBJETOS SELECIONADOS DO GRID PARA O GOOGLE CALENDAR</h1>
-        </section>
         
-      </div>
+
     </div>
   );
 };

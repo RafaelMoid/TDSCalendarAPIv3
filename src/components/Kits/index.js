@@ -1,5 +1,9 @@
-const Kits = ({ nomeMapa , nomeEncontro}) => {
+import "./styles.css";
 
+
+
+const Kits = ({ nomeMapa , dataEncontro}) => {
+    
 
   
     return (
@@ -7,8 +11,9 @@ const Kits = ({ nomeMapa , nomeEncontro}) => {
         <div className="mapaKits">
           <div className="mapa">
             <h3>{nomeMapa}</h3>
-            
-            <button >{nomeEncontro}</button>
+            <div className="PontoDeEncontro">
+            <button className="PontoDeEncontroBtn" >{dataEncontro}</button>
+            </div>
           </div>
         </div>
       
