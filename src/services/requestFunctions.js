@@ -36,7 +36,7 @@ export const fetchUserProjects = async (token) => {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
-    },
+    }, 
   })
   return data;
 };

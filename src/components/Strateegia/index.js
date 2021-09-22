@@ -95,3 +95,6 @@ const Strateegia = () => {
 };
 
 export default Strateegia;
+
+
+//LoL
