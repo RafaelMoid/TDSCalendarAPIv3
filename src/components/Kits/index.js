@@ -9,7 +9,7 @@ const Kits = ({ nomeMapa , dataEncontro, mapData}) => {
     return (
       
         <div className="mapa">
-            <h3 className="hexagonTitle">{nomeMapa}</h3>
+            <h2 className="hexagonTitle">{nomeMapa}</h2>
             <div className="hexagonWrapper">
             <ul className="hexagonWrapper">
               <li className="textHexagon">

@@ -17,7 +17,7 @@
     color: white;
   }
 }
-
+/*
 @media screen and (max-width: 719px) {
   .Wrapper {
     font-family: Rubik;
@@ -31,9 +31,9 @@
         display:none;
       }
   }
-}
+}*/
 
-@media screen and (min-width: 720px) {
+//@media screen and (min-width: 720px) {
   .Wrapper {
     font-family: Rubik;
     display: flex;
@@ -48,4 +48,28 @@
       max-width:300px;
     }
   }
+//}
+
+H3 { text-align: center }
+
+.introImg {
+  position: relative;
+  top: 0;
+  right:0;
+}
+
+.introTxt p, i{
+  display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+@media screen and (max-width: 720px) {
+
+  .introImg img{
+    display: none;
+    max-height: 0px;
+    max-width: 0px;
+  }
+
 }

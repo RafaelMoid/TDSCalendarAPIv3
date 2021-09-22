@@ -1,0 +1,32 @@
+.wellcome {
+    position: relative;
+    font-weight: 400;
+    color:#52B9A7 ;
+    text-align: center;
+    
+
+    
+}
+
+.wellcome h3 {
+    font-size: 60px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.ola{
+   
+    color: black;
+}
+
+
+.linha {
+    position: absolute;
+width: 40%;
+height: 0px;
+left: 30.5%;
+top: 146px;
+
+border: 0.1px solid #52B9A7;
+}

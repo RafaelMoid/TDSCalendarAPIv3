@@ -36,13 +36,13 @@ export const fetchUserProjects = async (token) => {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
-    }, 
+    },
   })
   return data;
 };
 
-export const fetchMapById = async (token, projectId) => {
-  const {data} = await api(`/projects/v1/project/${projectId}`,
+export const fetchMapById = async (token) => {
+  const {data} = await api("/projects/v1/project/60e481ee9692e14e21c51261",
   {
     method: "GET", 
     headers: {
