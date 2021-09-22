@@ -11,6 +11,7 @@ import Wellcome from "../Wellcome"
 import Navbar2 from "../Navbarv2";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
+
 import "./styles.scss";
 
 const Strateegia = () => {
@@ -77,17 +78,17 @@ const Strateegia = () => {
         </Switch>
       </Router>
       
-      <Wellcome username={user.name}/>
-      <div className="introTxt">
-           <h3>Aqui estão todos os seus projetos na plataforma Strateegia. <br/>
-           Selecione o projeto para agendar seus pontos de conversação em sua Google Agenda.</h3>
       
-         <div className="introImg"><img className="image1" src="datep.svg" /></div>
+      <div className="introTxt">
+           <Wellcome username={user.name}/>
+           <h3>Aqui estão todos os seus projetos na plataforma Strateegia. <br/>
+           Selecione o projeto para agendar seus pontos de conversação<br/> em sua Google Agenda.</h3>
+           <img className="image1" src="datep.svg" />
+           <button className="togle">Criando meu canal de comunicação</button>
+         
       </div>
       
-            <div className="pontosDeEncontroTemplate">
-                <Kits nomeMapa={kitData?.title} dataEncontro={MapsData?.id} mapData={MapsData?.points}/>
-            </div>
+            
     
         
 
