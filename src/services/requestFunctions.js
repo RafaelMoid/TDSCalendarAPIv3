@@ -41,8 +41,8 @@ export const fetchUserProjects = async (token) => {
   return data;
 };
 
-export const fetchMapById = async (token) => {
-  const {data} = await api("/projects/v1/project/60e481ee9692e14e21c51261",
+export const fetchMapById = async (token, projectId) => {
+  const {data} = await api(`/projects/v1/project/${projectId}`,
   {
     method: "GET", 
     headers: {

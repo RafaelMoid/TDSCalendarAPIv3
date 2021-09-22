@@ -1,3 +1,7 @@
+.mapa{
+    margin-top:-15%;
+}
+
 .hexagon {
     max-height: 100px;
     max-width: 100px;
@@ -19,6 +23,7 @@
 }
 
 .hexagonWrapper {
+    
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;

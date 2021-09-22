@@ -8,7 +8,6 @@
   color: white;
   text-align: center;
   a:link{
-    text-decoration: none;
     color: white;
   }
   a:hover{
@@ -16,7 +15,6 @@
   }
   a:visited{
     color: white;
-    text-decoration: none;
   }
 }
 
@@ -42,10 +40,12 @@
     flex-direction: column;
     align-items: row;
     .image1{
+      margin-top:-4.3%;
+      margin-left:85% ;
       align-items:right;
       justify-content:right;
-      max-height:200px;
-      max-width:200px;
+      max-height:300px;
+      max-width:300px;
     }
   }
 }
