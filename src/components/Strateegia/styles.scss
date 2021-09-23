@@ -39,9 +39,14 @@
     display: flex;
     flex-direction: column;
     align-items: row;
+    position: relative;
     
   }
 //}
+
+.WrapperNav {
+  z-index: 999;
+}
 
 H3 { text-align: center }
 
@@ -49,7 +54,7 @@ H3 { text-align: center }
   max-height: 250px;
   max-width: 250px;
   margin-left: 77%;
-  margin-top: -14%;
+  margin-top: -10%;
 }
 
 .togle{
@@ -58,6 +63,8 @@ H3 { text-align: center }
   display: flex;
   padding: 5px 10px 5px 10px;
   outline: gray;
+  margin-left: 20%;
+
 }
 
 .introTxt p{

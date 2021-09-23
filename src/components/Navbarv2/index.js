@@ -30,9 +30,7 @@ const Navbar2 = ({ username }) => {
             <FaIcons.FaBars onClick={showSidebar}/>
         </Link>
         </div>
-        <div className="logout">
-          <button onClick={handleLogout}>sair</button>
-        </div>
+       
       
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
@@ -47,7 +45,7 @@ const Navbar2 = ({ username }) => {
                       <li key={index} className={item.cName}>
                           <Link to={item.path}>
                            {item.icon}
-                           <span>{item.title}</span> 
+                           <span onClick={click} >{item.title}</span> 
                           </Link>
                       </li>
                   )

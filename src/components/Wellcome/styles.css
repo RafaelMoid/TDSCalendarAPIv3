@@ -3,8 +3,8 @@
     font-weight: 400;
     color:#52B9A7 ;
     text-align: center;
+    flex-wrap: wrap;
     
-
     
 }
 
@@ -23,10 +23,16 @@
 
 .linha {
     position: absolute;
-width: 40%;
+width: 36%;
 height: 0px;
-left: 30.5%;
-top: 146px;
+left: 32.1%;
+top: 38%;
 
 border: 0.1px solid #52B9A7;
+}
+
+@media screen and (max-width: 719px) {
+    .linha {
+        display:none;
+    }
 }

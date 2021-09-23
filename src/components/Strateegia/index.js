@@ -71,28 +71,30 @@ const Strateegia = () => {
     
     <div className="Wrapper">
       
-      <Router>
-        <Navbar2 />
-        <Switch>
-          <Route path='/' />
-        </Switch>
-      </Router>
+      <div className="WrapperNav">
+        <Router>
+          <Navbar2 />
+          <Switch>
+            <Route path='/' />
+          </Switch>
+        </Router>
+      </div>
       
       
       <div className="introTxt">
            <Wellcome username={user.name}/>
            <h3>Aqui estão todos os seus projetos na plataforma Strateegia. <br/>
-           Selecione o projeto para agendar seus pontos de conversação<br/> em sua Google Agenda.</h3>
+           Escolha um projeto e agende seus encontros no Google agenda.</h3>
            <img className="image1" src="datep.svg" />
            <button className="togle">Criando meu canal de comunicação</button>
          
       </div>
-      
+      </div>
             
     
         
 
-    </div>
+    
   );
 };
 

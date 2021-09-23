@@ -4,7 +4,7 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as FiIcons from "react-icons/fi";
 
-export const SidebarData = [
+export const EncontrosData = [
     {
         title: ' Strateegia',
         path: '//https://app.strateegia.digital/signin',
@@ -14,7 +14,7 @@ export const SidebarData = [
 
     {
         title: ' G calendar',
-        path: '//https://calendar.google.com/',
+        path: '//https://www.google.com/intl/pt-BR/calendar/about/',
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },

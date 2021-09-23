@@ -1,49 +1,62 @@
- /*import "./styles.css";
+import React,{ useContext, useState } from "react";
+import { AuthContext } from "../providers/auth";
+import { useHistory } from "react-router";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import {EncontrosData} from './EncontrosData.js';
+import {Link} from "react-router-dom";
+import "./style.css";
+import {IconContext} from 'react-icons';
 
 
+const Navbar2 = ({ username }) => {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+  const [encontros,setEncontros] = useState(false);
 
-const Kits = ({ nomeMapa }) => {
-    
+  const showEncontros = () => setEncontros(!sidebar);
 
-  
-    return (
-      
-      
-      
-      
-     
-        <div className="mapa">
-            <div className="motherFucker">
-              <div className="btn"><button >{nomeMapa}</button></div>
-              <div className="hexagonWrapper">
-              <ul className="hexagonWrapper">
-                <li className="textHexagon">
-                  <img className="hexagon" src="hexagon.png"/>
-                    <p>19:00</p>
-                    <p>31/11/2021</p>
-                </li>
-                <li className="textHexagon">
-                  <img className="hexagon" src="hexagon.png"/>
-                    <p>19:00</p>
-                    <p>12/11/2021</p>
-                </li>
-                <li className="textHexagon">
-                  <img className="hexagon" src="hexagon.png"/>
-                    <p>17:00</p>
-                    <p>25/12/2021</p>
-                </li>
-                <li className="textHexagon">
-                  <img className="hexagon" src="hexagon.png"/>
-                    <p>20:00</p>
-                    <p>30/12/2021</p>
-                </li>
-              </ul>
-              </div>
-            </div>
-            </div>      
-        
-      
-    );
+  const handleLogout = () => {
+    auth.setApiToken("");
+    auth.setIsAuthenticated(!auth.isAuthenticated);
+    history.push("/login");
   };
-  
-  export default Kits;  */ 
+
+  return (
+    <>
+    <IconContext.Provider value={{color:'white'}}>
+      <div className="navbar">
+        <Link to="#" className='menu-bars'>
+            <FaIcons.FaBars onClick={showEncontros}/>
+        </Link>
+        </div>
+       
+      
+      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showEncontros}>
+              <li className="navbar-toogle">
+                  <Link to="#" className='menu-bars'>
+                    <AiIcons.AiOutlineClose />
+                  </Link>
+              </li>
+              
+              {SidebarData.map((item, index, click) =>{
+                  return(
+                      <li key={index} className={item.cName}>
+                          <Link to={item.path}>
+                           {item.icon}
+                           <span onClick={click} >{item.title}</span> 
+                          </Link>
+                      </li>
+                  )
+              })}
+            
+              
+          </ul>
+      </nav>
+      </IconContext.Provider>
+    </>
+  );
+};
+
+export default Navbar2;
