@@ -14,7 +14,7 @@ const Navbar2 = ({ username }) => {
   const history = useHistory();
   const [encontros,setEncontros] = useState(false);
 
-  const showEncontros = () => setEncontros(!sidebar);
+  const showEncontros = () => setEncontros(!encontros);
 
   const handleLogout = () => {
     auth.setApiToken("");
@@ -32,7 +32,7 @@ const Navbar2 = ({ username }) => {
         </div>
        
       
-      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+      <nav className={encontros ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showEncontros}>
               <li className="navbar-toogle">
                   <Link to="#" className='menu-bars'>
@@ -40,12 +40,12 @@ const Navbar2 = ({ username }) => {
                   </Link>
               </li>
               
-              {SidebarData.map((item, index, click) =>{
+              {EncontrosData.map((item, index, click) =>{
                   return(
                       <li key={index} className={item.cName}>
                           <Link to={item.path}>
-                           {item.icon}
-                           <span onClick={click} >{item.title}</span> 
+                           <img src="hexagon.svg"/>
+                           <span onClick={click} >{item.date + <br/> + item.startTime}</span> 
                           </Link>
                       </li>
                   )
