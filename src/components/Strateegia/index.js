@@ -26,7 +26,7 @@ const Strateegia = () => {
   // const [projects, setProjects] = useState([]);
   const auth = useContext(AuthContext);
 
-
+  
 
   useEffect(() => {
     fetchUserData(auth.apiToken).then((data) => {

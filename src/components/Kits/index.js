@@ -13,7 +13,29 @@ const Encontros = ({ username }) => {
   const history = useHistory();
   const [encontros,setEncontros] = useState(false);
 
-  
+  //Google Calendar variables
+  var gapi = window.gapi;
+  var CLIENT_ID = "207024536115-rks4d3inm4brold6q3gba4feqf8jfjfe.apps.googleusercontent.com";
+  var API_KEY = "AIzaSyBRbKpQQ0fFyvy1iuLVOP29mCchyq4r6dg";
+  var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+  var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+
+  const calendarEvent = () => {
+    gapi.load('client:auth2', () => {
+      console.log('loaded client');
+
+      gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES,
+      })
+
+      gapi.client.load('calendar', 'v3', () => console.log('Bam!'))
+
+      gapi.auth2.getAuthInstance().signIn();
+    })
+  }
 
   const showEncontros = () => setEncontros(!encontros);
   if ( showEncontros == false) {
@@ -42,14 +64,14 @@ const Encontros = ({ username }) => {
           <ul className='button-menu-items' onClick={showEncontros}>
               
               
-              {EncontrosData.map((item, index, click) =>{
+              {EncontrosData.map((item, index) =>{
                   return(
                       <li key={index} className={item.cName}>
-                          <Link to={item.path} className="kitHexagon">
-                           <img className="hexaImg" onClick={click} src="hexagon.png"/>
-                           <span onClick={click} className={item.cName+'1'}>{item.dia}</span> 
-                           <span onClick={click} className={item.cName+'2'} > {item.hour} </span>
-                          </Link>
+                          <div className="kitHexagon">
+                           <img className="hexaImg" onClick={calendarEvent} src="hexagon.png"/>
+                           <span onClick={calendarEvent} className={item.cName+'1'}>{item.dia}</span> 
+                           <span onClick={calendarEvent} className={item.cName+'2'} > {item.hour} </span>
+                          </div>
                       </li>
                   )
               })}
