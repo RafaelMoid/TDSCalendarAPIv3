@@ -1,43 +1,64 @@
-import "./styles.css";
+import React,{ useContext, useState } from "react";
+import { AuthContext } from "../providers/auth";
+import { useHistory } from "react-router";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import {EncontrosData} from './EncontrosData.js';
+import {Link} from "react-router-dom";
+import "./encontros.css";
 
 
-
-const Kits = ({ nomeMapa , dataEncontro, mapData}) => {
-    
+const Encontros = ({ username }) => {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+  const [encontros,setEncontros] = useState(false);
 
   
-    return (
-      
-        <div className="mapa">
-            <h3 className="hexagonTitle">{nomeMapa}</h3>
-            <div className="hexagonWrapper">
-            <ul className="hexagonWrapper">
-              <li className="textHexagon">
-                <img className="hexagon" src="hexagon.png"/>
-                  <p>19:00</p>
-                  <p>31/11/2021</p>
-              </li>
-              <li className="textHexagon">
-                <img className="hexagon" src="hexagon.png"/>
-                  <p>19:00</p>
-                  <p>12/11/2021</p>
-              </li>
-              <li className="textHexagon">
-                <img className="hexagon" src="hexagon.png"/>
-                  <p>17:00</p>
-                  <p>25/12/2021</p>
-              </li>
-              <li className="textHexagon">
-                <img className="hexagon" src="hexagon.png"/>
-                  <p>20:00</p>
-                  <p>30/12/2021</p>
-              </li>
-            </ul>
-            </div>
-            </div>        
-        
-      
-    );
+
+  const showEncontros = () => setEncontros(!encontros);
+  if ( showEncontros == false) {
+    const btnIcon = "FaChevronRight";
+  } else {
+    const btnIcon = "FaChevronDown";
   };
-  
-  export default Kits; 
+
+
+  const handleLogout = () => {
+    auth.setApiToken("");
+    auth.setIsAuthenticated(!auth.isAuthenticated);
+    history.push("/login");
+  };
+
+  return (
+    <>
+      <div className="wrapper">
+        <Link to="#" className='button-menu-bars'>
+        <button onClick={showEncontros} className={encontros? 'buttonTogle active' : 'buttonTogle'}>Criando meu canal de comunicação</button>
+        </Link>
+        </div>
+       
+      
+      <nav className={encontros ? 'button-menu active' : 'button-menu'}>
+          <ul className='button-menu-items' onClick={showEncontros}>
+              
+              
+              {EncontrosData.map((item, index, click) =>{
+                  return(
+                      <li key={index} className={item.cName}>
+                          <Link to={item.path} className="kitHexagon">
+                           <img className="hexaImg" onClick={click} src="hexagon.png"/>
+                           <span onClick={click} className={item.cName+'1'}>{item.dia}</span> 
+                           <span onClick={click} className={item.cName+'2'} > {item.hour} </span>
+                          </Link>
+                      </li>
+                  )
+              })}
+            
+              
+          </ul>
+      </nav>
+    </>
+  );
+};
+
+export default Encontros;

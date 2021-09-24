@@ -1,12 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/auth";
 import {
-  fetchUserData,fetchUserProjects,fetchMapById, fetchEncounterByMaps, fetchUserGetProjectById
+  fetchUserData,fetchUserEncouters,fetchMapById, fetchEncounterByMaps, fetchUserGetProjectById
   // fetchUserProjects,
 } from "../../services/requestFunctions";
 import Navbar from "../Navbar";
 import Kits from "../Kits";
 import Button from "../pontosDeEncontro";
+import Wellcome from "../Wellcome";
+import Navbar2 from "../Navbarv2";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Encontros from "../Kits";
+
 
 import "./styles.scss";
 
@@ -33,19 +38,11 @@ const Strateegia = () => {
     // });
   }, [auth.apiToken]);
 
-  useEffect(() => {
-    fetchUserProjects(auth.apiToken).then((data) => {
-      console.log(data);
-      setIdKitData(data);
-    });
-    // fetchUserProjects(auth.apiToken).then((data) => {
-    //   setProjects(data);
-    // });
-  }, [auth.apiToken]);
 
+  
   //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51)
   useEffect(() => {
-    fetchMapById(auth.apiToken, idKitData?.projects[1].lab.id).then((data) => {
+    fetchMapById(auth.apiToken, ).then((data) => {
       console.log(data);
       setKitData(data);
     });
@@ -74,23 +71,30 @@ const Strateegia = () => {
   return (
     
     <div className="Wrapper">
-      <Navbar username={user.name} />
-      <div className="textIntro">
-        <h3>Aqui estão todos os seus projetos na plataforma Strateegia. <br/>
-         Selecione o projeto para agendar seus pontos de conversação em sua Google Agenda.</h3>
-         <img className="image1" src="Calendar_SVG 1.svg" />
+      
+      <div className="WrapperNav">
+        
+          <Navbar2 />
+          
       </div>
       
-            <div className="pontosDeEncontroTemplate">
-                <Kits nomeMapa={kitData?.title} dataEncontro={MapsData?.id} mapData={MapsData?.points}/>
-                
-            </div>
+      
+      <div className="introTxt">
+           <div className="firstLine">
+             <Wellcome username={user.name}/>
+             <h3>Aqui estão todos os seus projetos na plataforma Strateegia. Selecione o projeto para agendar seus 
+pontos de conversação em sua Google Agenda.</h3>
+           </div>
+           <img className="image1" src="datep.svg" />
+           
+              </div>
+              <Encontros />
+      </div>
+            
     
-      <footer className="footer">
-      Desenvolvido por <a href="https://www.linkedin.com/in/rafaelvarelati/" target="_blank">Rafael Varela (Desenvolvedor fullstack)</a>, <a href="https://www.linkedin.com/in/diego-santos-ab17011b8/" target="_blank">Diego Santos (Ui/Ux Designer)</a> e <a href="https://www.linkedin.com/in/caroules/" target="_blank">Carolina Aguiar (Designer)</a>
-      </footer>    
+        
 
-    </div>
+    
   );
 };
 
