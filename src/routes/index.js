@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../components/providers/auth";
 import Login from "../components/Login";
 import Strateegia from "../components/Strateegia";
+import Desenvolvedores from "../components/Desenvolvedores";
 
 const Routes = () => {
   const auth = useContext(AuthContext);
@@ -15,7 +16,9 @@ const Routes = () => {
         <Route path="/login" exact>
           <Login />
         </Route>
-       
+        <Route path="/Desenvolvedores"  exact>
+          <Desenvolvedores />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

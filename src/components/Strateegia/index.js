@@ -26,7 +26,7 @@ const Strateegia = () => {
   // const [projects, setProjects] = useState([]);
   const auth = useContext(AuthContext);
 
-
+  
 
   useEffect(() => {
     fetchUserData(auth.apiToken).then((data) => {
@@ -42,7 +42,7 @@ const Strateegia = () => {
   
   //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51)
   useEffect(() => {
-    fetchMapById(auth.apiToken, ).then((data) => {
+    fetchMapById(auth.apiToken ).then((data) => {
       console.log(data);
       setKitData(data);
     });

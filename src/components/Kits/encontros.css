@@ -46,38 +46,35 @@
 
 .hexa{
     
-    align-items: left;
+    align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
     left:0px;
-    margin-right: 5%;
-    margin-bottom:13%;
+    margin-left: 2.2%;
+    margin-right: -10%;
+    margin-bottom:-15%;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 10px;
+    color:white;
+
 }
 
-.hexa1 {
-    position: absolute;
-    top:45%;
+.textStyle{
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    left:14%;
-    font-size: 90%;
-}
-
-.hexa2 {
-    position: absolute;
-    top:25%;
-    left:25%;
-
+    margin-left: -57.5%;
+    margin-top: 15%;
 }
 
 .hexa a {
     text-decoration:none;
     color: white;
     font-size: 16px;
-    width: wrap;
     height: 100%;
     display:flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0;
     border-radius: 4px;
     position:absolute
 
