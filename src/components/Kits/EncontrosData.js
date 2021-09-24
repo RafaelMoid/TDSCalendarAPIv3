@@ -6,8 +6,9 @@ import * as FiIcons from "react-icons/fi";
 
 export const EncontrosData = [
     {
-        title: ' Encontro para a entrega',
+        title: 'Encontro para a entrega',
         startTime: 'December 20, 2021 21:00:00 UTC',
+        
         hour: '20:00',
         cName: 'hexa',
         dia: '20/12/2021'
