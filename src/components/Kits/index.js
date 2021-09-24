@@ -5,11 +5,10 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import {EncontrosData} from './EncontrosData.js';
 import {Link} from "react-router-dom";
-import "./style.css";
-import {IconContext} from 'react-icons';
+import "./encontros.css";
 
 
-const Navbar2 = ({ username }) => {
+const Encontros = ({ username }) => {
   const auth = useContext(AuthContext);
   const history = useHistory();
   const [encontros,setEncontros] = useState(false);
@@ -24,28 +23,24 @@ const Navbar2 = ({ username }) => {
 
   return (
     <>
-    <IconContext.Provider value={{color:'white'}}>
-      <div className="navbar">
-        <Link to="#" className='menu-bars'>
-            <FaIcons.FaBars onClick={showEncontros}/>
+      <div className="wrapper">
+        <Link to="#" className='button-menu-bars'>
+        <button onClick={showEncontros} className="buttonTogle">Criando meu canal de comunicação</button>
         </Link>
         </div>
        
       
-      <nav className={encontros ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' onClick={showEncontros}>
-              <li className="navbar-toogle">
-                  <Link to="#" className='menu-bars'>
-                    <AiIcons.AiOutlineClose />
-                  </Link>
-              </li>
+      <nav className={encontros ? 'button-menu active' : 'button-menu'}>
+          <ul className='button-menu-items' onClick={showEncontros}>
+              
               
               {EncontrosData.map((item, index, click) =>{
                   return(
                       <li key={index} className={item.cName}>
                           <Link to={item.path}>
-                           <img src="hexagon.svg"/>
-                           <span onClick={click} >{item.date + <br/> + item.startTime}</span> 
+                           <img className="hexaImg" onClick={click} src="hexagon.png"/>
+                           <span onClick={click} className={item.cName+'1'}>{item.dia}</span> 
+                           <span onClick={click} className={item.cName+'2'} > {item.hour} </span>
                           </Link>
                       </li>
                   )
@@ -54,9 +49,8 @@ const Navbar2 = ({ username }) => {
               
           </ul>
       </nav>
-      </IconContext.Provider>
     </>
   );
 };
 
-export default Navbar2;
+export default Encontros;

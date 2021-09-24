@@ -7,9 +7,10 @@ import {
 import Navbar from "../Navbar";
 import Kits from "../Kits";
 import Button from "../pontosDeEncontro";
-import Wellcome from "../Wellcome"
+import Wellcome from "../Wellcome";
 import Navbar2 from "../Navbarv2";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Encontros from "../Kits";
 
 
 import "./styles.scss";
@@ -82,12 +83,14 @@ const Strateegia = () => {
       
       
       <div className="introTxt">
-           <Wellcome username={user.name}/>
-           <h3>Aqui estão todos os seus projetos na plataforma Strateegia. <br/>
-           Escolha um projeto e agende seus encontros no Google agenda.</h3>
+           <div className="firstLine">
+             <Wellcome username={user.name}/>
+             <h3>Aqui estão todos os seus projetos na plataforma Strateegia. <br/>
+             Escolha um projeto e agende seus encontros no Google agenda.</h3>
+           </div>
            <img className="image1" src="datep.svg" />
-           <button className="togle">Criando meu canal de comunicação</button>
-         
+           
+            <Encontros />
       </div>
       </div>
             
