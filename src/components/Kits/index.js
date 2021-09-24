@@ -13,7 +13,15 @@ const Encontros = ({ username }) => {
   const history = useHistory();
   const [encontros,setEncontros] = useState(false);
 
+  
+
   const showEncontros = () => setEncontros(!encontros);
+  if ( showEncontros == false) {
+    const btnIcon = "FaChevronRight";
+  } else {
+    const btnIcon = "FaChevronDown";
+  };
+
 
   const handleLogout = () => {
     auth.setApiToken("");
@@ -25,7 +33,7 @@ const Encontros = ({ username }) => {
     <>
       <div className="wrapper">
         <Link to="#" className='button-menu-bars'>
-        <button onClick={showEncontros} className="buttonTogle">Criando meu canal de comunicação</button>
+        <button onClick={showEncontros} className={encontros? 'buttonTogle active' : 'buttonTogle'}>Criando meu canal de comunicação</button>
         </Link>
         </div>
        
@@ -37,7 +45,7 @@ const Encontros = ({ username }) => {
               {EncontrosData.map((item, index, click) =>{
                   return(
                       <li key={index} className={item.cName}>
-                          <Link to={item.path}>
+                          <Link to={item.path} className="kitHexagon">
                            <img className="hexaImg" onClick={click} src="hexagon.png"/>
                            <span onClick={click} className={item.cName+'1'}>{item.dia}</span> 
                            <span onClick={click} className={item.cName+'2'} > {item.hour} </span>

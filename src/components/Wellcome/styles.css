@@ -2,9 +2,6 @@
     position: relative;
     font-weight: 400;
     color:#52B9A7 ;
-    text-align: center;
-    flex-wrap: wrap;
-    
     
 }
 
@@ -22,11 +19,11 @@
 
 
 .linha {
-    position: absolute;
-width: 36%;
+
+width: 62%;
 height: 0px;
 left: 32.1%;
-top: 38%;
+top: 20%;
 
 border: 0.1px solid #52B9A7;
 }

@@ -1,39 +1,4 @@
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #52B9A7;
-  color: white;
-  text-align: center;
-  a:link{
-    color: white;
-  }
-  a:hover{
-    color: rgb(129, 20, 255);
-  }
-  a:visited{
-    color: white;
-  }
-}
-/*
-@media screen and (max-width: 719px) {
-  .Wrapper {
-    font-family: Rubik;
-    display: flex;
-      flex-direction: column;
-      width: 100%;
-      .image1{
-       
-        max-height: 0px;
-        max-width: 0px;
-        display:none;
-      }
-  }
-}*/
-
-//@media screen and (min-width: 720px) {
   .Wrapper {
     font-family: Rubik;
     display: flex;
@@ -44,18 +9,30 @@
   }
 //}
 
+.firstLine {
+  margin-top: 4%;
+  width:58.5%;
+  display: column;
+  flex-direction: column;
+  margin-left: 11.5%;
+}
+
 .WrapperNav {
   z-index: 999;
   height:10%;
 }
 
-H3 { text-align: center }
+.introTxt {
+  display: flex;
+  flex-direction: row;
+  
+}
 
 .image1{
-  max-height: 250px;
-  max-width: 250px;
-  margin-left: 77%;
-  margin-top: -10%;
+  max-height: 300px;
+  max-width: 300px;
+  margin-top: 5%;
+  z-index: 100;
 }
 
 .togle{
@@ -68,11 +45,6 @@ H3 { text-align: center }
 
 }
 
-.introTxt p{
-  display: inline-block;
-    vertical-align: top;
-    position: relative;
-}
 
 @media screen and (max-width: 720px) {
 

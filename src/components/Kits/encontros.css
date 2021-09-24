@@ -1,16 +1,21 @@
 .wrapper {
-    background-color:blue ;
+    background-color:white ;
     height:100px;
     
     display: flex;
     justify-content: start;
     align-items: center;
     position: relative;
+    margin-top: -10%;
     
     
 }
 
-
+.kitHexagon{
+    z-index: 999;
+    display: flex;
+    flex-direction: row;
+}
 
 .button-menu-bars {
     margin-left: 8rem;
@@ -21,39 +26,37 @@
 }
 
 .button-menu {
-    background-color:grey ;
+    margin-left: 5%;
     width: 100%;
     height:99px;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
-    top: 50%;
-    transition: 850ms;
+    top: 42.7%;
+    transition: 550ms;
     z-index: -10;
     
 }
 
 .button-menu.active {
-    top:67%;
+    top:57%;
     transition: 350ms;
 }
 
 .hexa{
-     
-    align-items: center;
+    
+    align-items: left;
     padding: 8px 0px 8px 16px;
     list-style: none;
-    height: 60px;
-    top:0px;
     left:0px;
-    display: block;
-    margin: auto;
+    margin-right: 5%;
+    margin-bottom:13%;
 }
 
 .hexa1 {
     position: absolute;
-    top:40%;
+    top:45%;
     text-align: center;
     left:14%;
     font-size: 90%;
@@ -61,7 +64,7 @@
 
 .hexa2 {
     position: absolute;
-    top:20%;
+    top:25%;
     left:25%;
 
 }
@@ -80,14 +83,20 @@
 
 }
 
-.hexa a:hover {
-    background-color: #7ce9d7;
+
+
+.hexaImg {
+    
+    max-height: 100px;
+    max-width: 100px;
+    top:50%;
+    left:50%;
 }
 
 .button-menu-items {
+    display: flex;
     width:100%;
-    
-    
+    flex-direction: row;
 }
 
 
@@ -99,12 +108,24 @@ span {
 /* CONFIG DO BOTÃO DO MENU */
 .buttonTogle {
     color:black;
+    border-radius:2em;
+    font-family:'Roboto',sans-serif;
+    box-sizing: border-box;
+    background-color:white;
+    border-color: #52B9A7;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: -40%;
+    
 }
 
-.hexaImg {
-    
-    max-height: 100px;
-    max-width: 100px;
-    top:50%;
-    left:50%;
+.buttonTogle.active{
+    color:white;
+    border-radius:2em;
+    font-family:'Roboto',sans-serif;
+    box-sizing: border-box;
+    background-color:#52B9A7;
+    border-color: #52B9A7;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: -40%;
+
 }
