@@ -1,8 +1,6 @@
 import React,{ useContext, useState } from "react";
 import { AuthContext } from "../providers/auth";
 import { useHistory } from "react-router";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import {EncontrosData} from './EncontrosData.js';
 import {Link} from "react-router-dom";
 import "./encontros.css";
@@ -74,18 +72,14 @@ const Encontros = ({ username }) => {
   }
 
   const showEncontros = () => setEncontros(!encontros);
-  if ( showEncontros == false) {
+  if ( showEncontros === false) {
     const btnIcon = "FaChevronRight";
   } else {
     const btnIcon = "FaChevronDown";
   };
 
 
-  const handleLogout = () => {
-    auth.setApiToken("");
-    auth.setIsAuthenticated(!auth.isAuthenticated);
-    history.push("/login");
-  };
+
 
   return (
     <>
@@ -104,7 +98,7 @@ const Encontros = ({ username }) => {
                   return(
                       <li key={index} className={item.cName}>
                           <div className="kitHexagon">
-                           <img className="hexaImg" onClick={calendarEvent} src="hexagon.png"/>
+                           <img className="hexaImg" alt="A Black Hexagon" onClick={calendarEvent} src="hexagon.png"/>
                            <div className="textStyle">
                              <span onClick={calendarEvent} className={item.cName}>{item.dia}</span>
                              <span onClick={calendarEvent} className={item.cName} > {item.hour} </span>
