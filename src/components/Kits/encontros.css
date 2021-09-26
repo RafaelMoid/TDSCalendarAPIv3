@@ -1,5 +1,5 @@
 .wrapper {
-    background-color:white ;
+    background-color:greenyellow ;
     height:100px;
     
     display: flex;
@@ -126,3 +126,13 @@ span {
     margin-bottom: -40%;
 
 }
+/* Usar essa estrutura para o responsive layout
+@media screen and (max-width: 720px) {
+
+    .image1{
+      display: none;
+      max-height: 0px;
+      max-width: 0px;
+    }
+
+}  */

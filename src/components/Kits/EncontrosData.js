@@ -1,8 +1,4 @@
-import React from 'react';
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
-import * as FiIcons from "react-icons/fi";
+
 
 export const EncontrosData = [
     {
