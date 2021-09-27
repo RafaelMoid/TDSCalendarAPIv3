@@ -82,7 +82,7 @@ const Strateegia = () => {
       <div className="introTxt">
            <div className="firstLine">
              <Wellcome username={user.name}/>
-             <h3>Aqui estão todos os seus projetos na plataforma Strateegia. Selecione o projeto para agendar seus 
+             <h3 className="textoo">Aqui estão todos os seus projetos na plataforma Strateegia. Selecione o projeto para agendar seus 
 pontos de conversação em sua Google Agenda.</h3>
            </div>
            <img className="image1" src="datep.svg" />

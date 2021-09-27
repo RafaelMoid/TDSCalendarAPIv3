@@ -149,7 +149,6 @@ span {
         justify-content: start;
         align-items: center;
         position: relative;
-        margin-top: -10%;  
         
     
         
@@ -177,28 +176,28 @@ span {
         justify-content: center;
         position: fixed;
         top: 0;
-        top: 42.7%;
+        top: 35%;
         transition: 550ms;
         z-index: -10;
         
     }
     
     .button-menu.active {
-        top:57%;
+        top:53%;
         transition: 350ms;
     }
     
     .hexa{
         
         align-items: center;
-        padding: 8px 0px 8px 16px;
+        padding: 8px 8px 8px 16px;
         list-style: none;
         left:0px;
         margin-left: 2.2%;
-        margin-right: -10%;
+        margin-right: -25%;
         margin-bottom:-15%;
         font-family: "Lucida Console", "Courier New", monospace;
-        font-size: 10px;
+        font-size: 9px;
         color:white;
     
     }
