@@ -38,13 +38,19 @@ const Encontros = ({ username }) => {
           'location': 'https://meet.google.com/nrj-cawc-fdj',
           'description': 'Sprint final.',
           'start': {
-            'dateTime': '2021-12-20T09:00:00',
+            'dateTime': '2021-12-20T09:00:00-07:00',
+            'timeZone': 'America/Recife'
           },
           'end': {
-            'dateTime': '2021-12-20T10:00:00',
+            'dateTime': '2021-12-20T10:00:00-07:00',
+            'timeZone': 'America/Recife'
           },
           'recurrence': [
             'RRULE:FREQ=DAILY;COUNT=2'
+          ],
+          'attendees': [
+            {'email': 'lpage@example.com'},
+            {'email': 'sbrin@example.com'}
           ],
           'reminders': {
             'useDefault': false,
