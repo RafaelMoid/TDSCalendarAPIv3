@@ -34,16 +34,16 @@ const Encontros = ({ username }) => {
       gapi.auth2.getAuthInstance().signIn()
       .then(() => {
         var event = {
-          'summary': 'Google I/O 2015',
-          'location': '800 Howard St., San Francisco, CA 94103',
-          'description': 'A chance to hear more about Google\'s developer products.',
+          'summary': 'Daily com time de dev',
+          'location': 'https://meet.google.com/nrj-cawc-fdj',
+          'description': 'Sprint final.',
           'start': {
-            'dateTime': '2015-05-28T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
+            'dateTime': '2021-12-20T09:00:00-07:00',
+            'timeZone': 'America/Recife'
           },
           'end': {
-            'dateTime': '2015-05-28T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles'
+            'dateTime': '2021-12-20T10:00:00-07:00',
+            'timeZone': 'America/Recife'
           },
           'recurrence': [
             'RRULE:FREQ=DAILY;COUNT=2'
