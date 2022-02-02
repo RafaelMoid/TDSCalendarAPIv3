@@ -17,7 +17,7 @@ const Wellcome = ({ username }) => {
   return (
     <>
       <div className="wellcome">
-          <h3 className="ola">Olá,</h3><h3 className="nome">{username}</h3><h3 className="ola">!</h3>
+          <h3 className="ola">Olá, </h3><h3 className="nome"> {username}</h3><h3 className="ola">!</h3>
           <hr className="linha"/>
         </div>
         

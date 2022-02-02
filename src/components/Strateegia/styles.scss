@@ -45,6 +45,55 @@
 
 }
 
+// ---- projects
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  margin-top: 20px;
+  
+  
+  // img:hover {
+  //   box-shadow: #52B9A7;
+  // }
+
+  // .hexaProj {
+  //   align-items: center;
+  //   width: 100px;
+  //   list-style: none;
+  //   left:0px;
+  //   font-family: "Lucida Console", "Courier New", monospace;
+  //   font-size: 10px;
+  //   color:white;
+
+  //   &:hover {
+  //     color: #52B9A7;
+  //   }
+  // }
+
+  // .textStyle{
+  //   display: flex;
+  //   flex-direction: column;
+  //   text-align: center;
+  //   margin-left: -95%;
+  //   margin-top: 30%;
+  //   cursor: pointer;
+  //   // width: 60px;
+
+  //   span {
+  //     width: 60px;
+  //   }
+  // }
+}
+
+.hexaImg { 
+  max-height: 100px;
+  max-width: 100px;
+  top:50%;
+  left:50%;
+}
+
 
 @media screen and (max-width: 720px) {
 

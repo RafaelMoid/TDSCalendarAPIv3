@@ -5,11 +5,9 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    position: fixed;
-    margin-top: -10%;  
-    top: 65vh;
-
-    
+    /* position: fixed; */
+    /* margin-top: -10%;   */
+    top: 65vh;    
 }
 
 .kitHexagon{
@@ -32,7 +30,7 @@
     height:99px;
     display: flex;
     justify-content: center;
-    position: fixed;
+    /* position: fixed; */
     
     top: 42vh;
     transition: 550ms;
@@ -46,7 +44,6 @@
 }
 
 .hexa{
-    
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
@@ -83,8 +80,7 @@
 
 
 
-.hexaImg {
-    
+.hexaImg { 
     max-height: 100px;
     max-width: 100px;
     top:50%;
@@ -148,8 +144,8 @@ span {
         display: flex;
         justify-content: start;
         align-items: center;
-        position: fixed;
-        margin-top: -10%;  
+        /* position: fixed;
+        margin-top: -10%;   */
         top: 60vh;
     
         
@@ -175,7 +171,7 @@ span {
         height:99px;
         display: flex;
         justify-content: center;
-        position: fixed;
+        /* position: fixed; */
         
         top: 39vh;
         transition: 550ms;
@@ -283,7 +279,7 @@ span {
         display: flex;
         justify-content: start;
         align-items: center;
-        position: fixed;
+        /* position: fixed; */
         left: 0vh;
         top: 50vh;
     
@@ -310,7 +306,7 @@ span {
         height:50vh;
         display: flex;
         justify-content: center;
-        position: fixed;
+        /* position: fixed; */
         top: 45vh;
         transition: 550ms;
         z-index: -10;
