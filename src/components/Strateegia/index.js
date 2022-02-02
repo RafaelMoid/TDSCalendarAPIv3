@@ -19,12 +19,8 @@ const Strateegia = () => {
   const [user, setUser] = useState({});
   const [projects, setProjects] = useState([]);
   const [projectId, setProjectId] = useState('');
-  //Aqui está a chamada do valor de id para a função seguinte
-  const [idKitData, setIdKitData] = useState("");
-  //Aqui estão os dados do mapa em si, é daqui que se resgata os kits (linha 51) \/
-  const [kitData, setKitData] = useState("");
-  //Retorno da linha 62 (aqui estão os pontos de encontro) \/
   const [mapsData, setMapsData] = useState("");
+  const [conversationPoints, setConversationPoints] = useState([]);
   const auth = useContext(AuthContext);
 
   
@@ -35,10 +31,6 @@ const Strateegia = () => {
       setUser(data);
     });
     fetchUserProjects(auth.apiToken).then((data) => {
-      // data.map(proj => {
-      //   console.log(proj.projects)
-      //   setProjects(data)
-      // })
       setProjects(data.map(proj => proj.projects));
     });
   }, [auth.apiToken]);
@@ -50,7 +42,8 @@ const Strateegia = () => {
         console.log(mapsData);
       });
     if (mapsData) mapsData.map( mapInfo => fetchMapById(auth.apiToken, mapInfo.id)
-      .then(data => console.log(data)));
+      .then(data => setConversationPoints(checkPoints(data))));
+      
   }, [projectId])
 
   const getAllMaps = projectData => {
@@ -59,6 +52,16 @@ const Strateegia = () => {
       setMapsData(mapsData => [...mapsData, mapInfo])}
       );
   };
+
+  const checkPoints = data => {
+    var today = new Date();
+    console.log(today)
+    const points = [...data.points];
+    const convPoints = points.filter(point => point.point_type === 'CONVERSATION')
+      // .filter(point => point.opening_date === today);
+    console.log(convPoints)
+    return convPoints;
+  }
 
 
   
@@ -112,14 +115,6 @@ const Strateegia = () => {
             <div className="projects">
               <Select placeholder="Projetos" onChange={(e) => setProjectId(e.target.value)}>
                 {projects.map(value => value.map(pr => (
-                  // <div key={pr.id} className='hexaProj'>
-                  //   <div className="kitHexagon">
-                  //     <img className="hexaImg" alt="A Black Hexagon" src="hexagon.png"/>
-                  //     <div className="textStyle" onClick={() => setProjectId(pr.id)}>
-                  //       <span className='hexaProj'>{pr.title.slice(0, 19)}</span>
-                  //     </div>
-                  //   </div>
-                  // </div>
                   <option onSelect={() => {
                     setProjectId(pr.id)
                     console.log(pr.id)
@@ -128,6 +123,13 @@ const Strateegia = () => {
                 )))}
 
               </Select>
+              {conversationPoints ? conversationPoints.map(point => (
+                <div key={point.id}>
+                  <p>{point.description}</p>
+                  <a href={point.meeting_place}>{point.meeting_place}</a>
+                  <span>{point.opening_date}</span>
+                </div>
+              )) : ''}
             </div>
           </div>
           <img className="image1" src="datep.svg" />
