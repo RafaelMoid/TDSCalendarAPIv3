@@ -18,8 +18,9 @@ import "./styles.scss";
 const Strateegia = () => {
   const [user, setUser] = useState({});
   const [projects, setProjects] = useState([]);
+  const [singleProject, setSingleProject] = useState([]);
   const [projectId, setProjectId] = useState('');
-  const [mapsData, setMapsData] = useState("");
+  const [mapsData, setMapsData] = useState([]);
   const [conversationPoints, setConversationPoints] = useState([]);
   const auth = useContext(AuthContext);
 
@@ -27,7 +28,7 @@ const Strateegia = () => {
 
   useEffect(() => {
     fetchUserData(auth.apiToken).then((data) => {
-      console.log(data);
+      // console.log(data);
       setUser(data);
     });
     fetchUserProjects(auth.apiToken).then((data) => {
@@ -35,16 +36,80 @@ const Strateegia = () => {
     });
   }, [auth.apiToken]);
 
+  // useEffect(() => {
+  //   fetchProjectById(auth.apiToken, projectId)
+  //     .then(data => {
+  //       // setSingleProject([data]);
+  //       setMapsData([]);
+  //       if (projectId) data.maps.map( mapInfo => {
+  //         // setMapsData(mapsData => [...mapsData, mapInfo])
+  //         // console.log(mapInfo)
+  //         fetchMapById(auth.apiToken, mapInfo.id)
+  //         .then(mapData => {
+  //         console.log(mapData);
+  //       }
+  //         // );
+  //       // mapsData.map( mapInfo => fetchMapById(auth.apiToken, mapInfo.id)
+  //       //   .then(data => {
+  //       //   console.log(data);
+  //       // setConversationPoints(checkPoints(data))
+  //     )}
+  //     });
+  // }, [projectId]);
+
   useEffect(() => {
     fetchProjectById(auth.apiToken, projectId)
       .then(data => {
-        getAllMaps(data);
-        console.log(mapsData);
+        // console.log(data)
+        if (projectId) data.maps.map( mapInfo => {
+          setMapsData([]);
+          fetchMapById(auth.apiToken, mapInfo.id)
+            .then( mapData => {
+              console.log(mapData);
+              setMapsData(mapsData => [...mapsData, mapData] );
+            })
+        })
+      })
+  }, [projectId]);
+
+  useEffect(() => {
+    console.log(mapsData)
+    if (mapsData.length > 0) {
+      // console.log(mapsData.points)
+      setConversationPoints([])
+
+      // for (let i = 0; i < mapsData.length; i++) {
+      //   const convPoints = mapsData[i].points.filter(point => point.point_type === 'CONVERSATION');
+      //   const addSplitDate = convPoints.map( point => point = ({ splitDate: point.opening_date.split('T'), ...point}));
+      //   console.log(addSplitDate);
+      //   setConversationPoints( conversationPoints => [...conversationPoints, addSplitDate] );
+      //   console.log(conversationPoints);
+      // }
+      // console.log(conversationPoints);
+
+      mapsData.forEach( singleMap => {
+        const convPoints = singleMap.points.filter(point => point.point_type === 'CONVERSATION');
+        const addSplitDate = convPoints.map( point => point = ({ splitDate: point.opening_date.split('T'), ...point}));
+        console.log(addSplitDate);
+        setConversationPoints( conversationPoints => [...conversationPoints, addSplitDate] );
+        console.log(conversationPoints);
       });
-    if (mapsData) mapsData.map( mapInfo => fetchMapById(auth.apiToken, mapInfo.id)
-      .then(data => setConversationPoints(checkPoints(data))));
-      
-  }, [projectId])
+      console.log(conversationPoints);
+    }
+  }, [mapsData]);
+
+  
+
+  // useEffect(() => {
+  //   setMapsData([]);
+  //   if (singleProject) singleProject.maps.map( mapInfo => {
+  //     setMapsData(mapsData => [...mapsData, mapInfo])}
+  //     );
+  //   if (mapsData) mapsData.map( mapInfo => fetchMapById(auth.apiToken, mapInfo.id)
+  //     .then(data => {
+  //   setConversationPoints(checkPoints(data))
+  //   }))
+  // }, [projectId])
 
   const getAllMaps = projectData => {
     setMapsData([]);
@@ -55,11 +120,11 @@ const Strateegia = () => {
 
   const checkPoints = data => {
     var today = new Date();
-    console.log(today)
+    console.log(today.toLocaleDateString())
     const points = [...data.points];
     const convPoints = points.filter(point => point.point_type === 'CONVERSATION')
       // .filter(point => point.opening_date === today);
-    console.log(convPoints)
+    // console.log(convPoints)
     return convPoints;
   }
 
@@ -123,12 +188,14 @@ const Strateegia = () => {
                 )))}
 
               </Select>
-              {conversationPoints ? conversationPoints.map(point => (
-                <div key={point.id}>
-                  <p>{point.description}</p>
-                  <a href={point.meeting_place}>{point.meeting_place}</a>
-                  <span>{point.opening_date}</span>
-                </div>
+              {conversationPoints ? conversationPoints.map(arr => (
+                arr.map(point => (
+                  <div key={point.id}>
+                    <p>{point.description}</p>
+                    <a href={point.meeting_place}>{point.meeting_place}</a>
+                    <span>{point.opening_date}</span>
+                  </div>
+                ))
               )) : ''}
             </div>
           </div>
