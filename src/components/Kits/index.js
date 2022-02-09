@@ -3,7 +3,7 @@ import { AuthContext } from "../providers/auth";
 import { useHistory } from "react-router";
 import {EncontrosData} from './EncontrosData.js';
 import {Link} from "react-router-dom";
-import "./encontros.css";
+import "./encontros.scss";
 
 
 const Encontros = ({ username }) => {
