@@ -1,19 +1,19 @@
 import React from "react";
 import ApiCalendar from 'react-google-calendar-api/src/ApiCalendar';
+import { useToast } from '@chakra-ui/react';
 import { ReactComponent as HexPoint } from '../../assets/hexPoint.svg';
 import "./encontros.scss";
 
 
 const Encontros = ({ stateArray }) => {
-
+  const toast = useToast();
 
   const connectGoogle = (point, oDate) => {
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const date = new Date(oDate);
-    const datee = date.getTime() + 3600000
+    const datee = date.getTime() + 3600000;
     const finalDate = new Date(datee)
-    console.log(point)
 
     const event = {
       summary: point.description,
@@ -29,14 +29,24 @@ const Encontros = ({ stateArray }) => {
     };
 
     ApiCalendar.handleAuthClick()
-      .then(resp => console.log('logged in'));
+      .then(() => console.log('logged in'));
 
       ApiCalendar.createEvent(event)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
+        toast({
+            title: 'Eba!',
+            description: 'Seu ponto já está agendado.',
+            status: 'success',
+            duration: 2500,
+        });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        toast({
+          title: 'Oops!',
+          description: 'Não conseguimos agendar esse ponto.',
+          status: 'success',
+          duration: 2500,
+      });
   });
   }
 
