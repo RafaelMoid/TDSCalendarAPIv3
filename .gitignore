@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+!*/node_modules/react-google-calendar-api/src/ApiCalendar.js*
+!ApiCalendar.js
 /.pnp
 .pnp.js
 
