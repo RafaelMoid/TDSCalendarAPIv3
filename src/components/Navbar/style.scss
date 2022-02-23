@@ -1,0 +1,59 @@
+.navbar {
+    background-color:#52B9A7 ;
+    height:50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    
+    .logo {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        align-items: center;
+        margin: auto 5%;
+        
+        h1 {
+            font-family: Rubik;
+            font-style: normal;     
+            font-weight: 600;
+            font-size: 20px;
+            color: #FFFFFF;
+            
+            margin-left: 11px;
+        }
+    }
+    
+    .logout {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-self: center;
+        align-items: center;
+
+        margin: auto 5%;
+        cursor: pointer;
+
+        span {
+            font-family: Rubik;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            /* identical to box height */
+
+            margin-right: 11px;
+            color: #FFFFFF;
+            
+        }
+        
+        &:hover {
+            span, path {
+                color: #3A4151;
+                fill: #3A4151;
+                transition: 300ms;
+            }
+        }
+    }
+    
+}
+

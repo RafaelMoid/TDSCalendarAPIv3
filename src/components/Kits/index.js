@@ -44,7 +44,7 @@ const Encontros = ({ stateArray }) => {
         toast({
           title: 'Oops!',
           description: 'Não conseguimos agendar esse ponto.',
-          status: 'success',
+          status: 'error',
           duration: 2500,
       });
   });

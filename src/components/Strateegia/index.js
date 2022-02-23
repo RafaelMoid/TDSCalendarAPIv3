@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/auth";
 import { fetchUserData } from "../../services/requestFunctions";
 import ConversationPoints from "../conversationPoints/index";
-import Wellcome from "../Wellcome";
-import Navbar2 from "../Navbarv2";
+import Welcome from "../Welcome";
+import Navbar from "../Navbar";
 import { GoogleLogin } from "react-google-login";
 
 
@@ -21,26 +21,26 @@ const Strateegia = () => {
   
   }, [auth.apiToken]);
 
-  
 
-  /*<img className="bgImage" src="Calendar_SVG 1.svg"/>  Imagem para adicionar na tela de logado*/
 
   return (
     
     <div className="Wrapper">
       <div className="WrapperNav">
-          <Navbar2 />
+          <Navbar />
       </div>
       
-      <div className="introTxt">
+      <main>
           <div className="firstLine">
-            <Wellcome username={user.name}/>
-            <h3 className="textoo">Aqui estão todos os seus projetos na plataforma Strateegia. Selecione o projeto para agendar seus pontos de conversação em sua Google Agenda.</h3>
-            <ConversationPoints/>
+            <Welcome username={user.name}/>
+            <p className="texto">Selecione um projeto para adicionar seus pontos de conversação em sua Google Agenda.</p>
+            <ConversationPoints placeHolder={'Projeto 1'}/>
+            <ConversationPoints placeHolder={'Projeto 2'}/>
+            <ConversationPoints placeHolder={'Projeto 3'}/>
+            <ConversationPoints placeHolder={'Projeto 4'}/>
+            <ConversationPoints placeHolder={'Projeto 5'}/>
           </div>
-          <img className="image1" src="datep.svg" />
-           
-      </div>
+      </main>
         
     </div>
   

@@ -4,7 +4,9 @@ import { fetchProjectById,fetchMapById, fetchUserProjects } from "../../services
 import { Select } from '@chakra-ui/react';
 import Kits from "../Kits";
 
-const ConversationPoints = () => {
+import './styles.scss';
+
+const ConversationPoints = ({ placeHolder }) => {
     const [projects, setProjects] = React.useState([]);
     const [projectId, setProjectId] = React.useState('');
     const [mapsData, setMapsData] = React.useState([]);
@@ -60,7 +62,7 @@ const ConversationPoints = () => {
     
   return (
     <div className="projects">
-        <Select placeholder="Projetos" onChange={(e) => setProjectId(e.target.value)}>
+        <Select placeholder={placeHolder} onChange={(e) => setProjectId(e.target.value)}>
             {projects.map(value => value.map(pr => (
                 <option onSelect={() => {
                 setProjectId(pr.id)
