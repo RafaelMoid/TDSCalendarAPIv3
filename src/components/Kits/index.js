@@ -65,7 +65,7 @@ const Encontros = ({ stateArray }) => {
               </div>    
             </li>
           ))
-        )) : ''}
+        )) : <p>essa jornada não tem pontos futuros</p>}
       </ul>
     </>
   );
