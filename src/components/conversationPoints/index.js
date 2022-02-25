@@ -40,8 +40,10 @@ const ConversationPoints = ({ placeHolder }) => {
             const convPoints = singleMap.points.filter(point => point.point_type === 'CONVERSATION');
             const addSplitDate = convPoints.map( point => point = ({ splitDate: point.opening_date.split('T'), ...point}));
             setConversationPoints( conversationPoints => [...conversationPoints, addSplitDate] );
-          });
-        };
+          })
+        } else {
+            setFuturePoints('esse projeto não tem pontos futuros');
+        }
       }, [mapsData]);
 
     React.useEffect(() => {

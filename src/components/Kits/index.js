@@ -53,7 +53,7 @@ const Encontros = ({ stateArray }) => {
   return (
     <>
       <ul className='button-menu-items'>
-        {stateArray ? stateArray.map(arr => (
+        {typeof stateArray !== 'string' ? stateArray.map(arr => (
             arr.map( point => (
             <li key={point.id} className='hexa' onClick={() => connectGoogle(point, point.opening_date,)}>
               <div className="kitHexagon">
@@ -65,7 +65,7 @@ const Encontros = ({ stateArray }) => {
               </div>    
             </li>
           ))
-        )) : <li>essa jornada não tem pontos futuros</li>}
+        )) : <p>{stateArray}</p>}
       </ul>
     </>
   );
