@@ -14,23 +14,22 @@ function operacaoLenta() {
 
 const Encontros = ({ stateArray }) => {
   const toast = useToast();
+  console.log(stateArray)
 
   const connectGoogle = (point, oDate) => {
-    console.log('odate ', oDate)
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    console.log(timezone)
     const date = new Date(oDate);
-    console.log('datee ', datee)
-    const datee = date.getTime() + 3600000;
-    console.log('date ', date)
-    const finalDate = new Date(datee)
+    const iDate = date.getTime() - 3600000 * 3 ;
+    const eDate = iDate.getTime() + 3600000;
+    const initialDate = new Date(iDate);
+    const finalDate = new Date(eDate);
+    console.log('initalDate ', initialDate)
     console.log('finalDate ', finalDate)
-
     const event = {
       summary: point.description,
       location: point.meeting_place,
       start: {
-        dateTime: oDate,
+        dateTime: initialDate,
         timeZone: timezone
       },
       end: {
