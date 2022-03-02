@@ -20,8 +20,8 @@ const Encontros = ({ stateArray }) => {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const date = new Date(oDate);
     const iDate = date.getTime() - 3600000 * 3 ;
-    const eDate = iDate.getTime() + 3600000;
     const initialDate = new Date(iDate);
+    const eDate = initialDate.getTime() + 3600000;
     const finalDate = new Date(eDate);
     console.log('initalDate ', initialDate)
     console.log('finalDate ', finalDate)
