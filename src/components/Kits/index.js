@@ -4,16 +4,27 @@ import { useToast } from '@chakra-ui/react';
 import { ReactComponent as HexPoint } from '../../assets/hexPoint.svg';
 import "./encontros.scss";
 
+function operacaoLenta() {
+	let c;
+	for(let i= 0; i < 100000000; i++) {
+		c = i + i / 10;
+	}
+	return c;
+}
 
 const Encontros = ({ stateArray }) => {
   const toast = useToast();
 
   const connectGoogle = (point, oDate) => {
-
+    console.log('odate ', oDate)
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log(timezone)
     const date = new Date(oDate);
+    console.log('datee ', datee)
     const datee = date.getTime() + 3600000;
+    console.log('date ', date)
     const finalDate = new Date(datee)
+    console.log('finalDate ', finalDate)
 
     const event = {
       summary: point.description,
