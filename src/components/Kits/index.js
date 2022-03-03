@@ -14,7 +14,6 @@ function operacaoLenta() {
 
 const Encontros = ({ stateArray }) => {
   const toast = useToast();
-  console.log(stateArray)
 
   const connectGoogle = (point, oDate) => {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -57,7 +56,7 @@ const Encontros = ({ stateArray }) => {
           status: 'error',
           duration: 2500,
       });
-  });
+    });
   }
 
   return (
@@ -69,7 +68,8 @@ const Encontros = ({ stateArray }) => {
               <div className="kitHexagon">
                 <HexPoint />
                 <div className="textStyle">
-                    <span className='point-date'>{`${point.splitDate[0].slice(8, 10)}/${point.splitDate[0].slice(5, 7)}/${point.splitDate[0].slice(0, 4)}`}</span>
+                    {/* <span className='point-date'>{`${point.splitDate[0].slice(8, 10)}/${point.splitDate[0].slice(5, 7)}/${point.splitDate[0].slice(0, 4)}`}</span> */}
+                    <span className='point-date'>{point.splitDate[0]}</span>
                     <span className='point-hour' defaultValue={point.id}> {point.splitDate[1].slice(0, 5)} </span>
                 </div>
               </div>    

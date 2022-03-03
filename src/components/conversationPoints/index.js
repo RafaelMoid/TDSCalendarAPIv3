@@ -37,13 +37,19 @@ const ConversationPoints = ({ placeHolder }) => {
         if (mapsData.length > 0) {
           setConversationPoints([]);
           mapsData.forEach( singleMap => {
-            const convPoints = singleMap.points.filter(point => point.point_type === 'CONVERSATION');
-            const addSplitDate = convPoints.map( point => point = ({ splitDate: point.opening_date.split('T'), ...point}));
+            const convPoints = singleMap.points.filter(point => point.point_type === 'CONVERSATION')
+            const addSplitDate = convPoints.map( point => {
+                const d = point.opening_date;
+                const dateToUTC = Date.UTC(Number(d.slice(0, 4)), (Number(d.slice(5, 7)) - 1), Number(d.slice(8, 10)), Number(d.slice(11, 13)), Number(d.slice(14, 16)));
+                const date = new Date(dateToUTC);
+                return point = ({ splitDate: date.toLocaleString().split(' '), ...point})
+            });
             setConversationPoints( conversationPoints => [...conversationPoints, addSplitDate] );
           })
-        } else {
-            setFuturePoints('esse projeto não tem pontos futuros');
-        }
+        } 
+        // else {
+        //     setFuturePoints('esse projeto não tem pontos futuros');
+        // }
       }, [mapsData]);
 
     React.useEffect(() => {
@@ -56,9 +62,9 @@ const ConversationPoints = ({ placeHolder }) => {
     const isInTheFuture = value => {
         const date = new Date();
         const today = date.toISOString().split('T')[0];
-        const year = parseInt(value.splitDate[0].slice(0, 4));
-        const month = parseInt(value.splitDate[0].slice(5, 7));
-        const day = parseInt(value.splitDate[0].slice(8, 10));
+        const year = parseInt(value.splitDate[0].slice(6, 10));
+        const month = parseInt(value.splitDate[0].slice(3, 5));
+        const day = parseInt(value.splitDate[0].slice(0, 2));
         if (year >= parseInt(today.slice(0, 4)) && month > parseInt(today.slice(5, 7)) || (year >= parseInt(today.slice(0, 4)) && month === parseInt(today.slice(5, 7)) && day >= parseInt(today.slice(8, 10)))) return true;
     }  
     

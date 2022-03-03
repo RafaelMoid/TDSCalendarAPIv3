@@ -54,12 +54,12 @@ const Login = () => {
 
   return (
     <>
-      {auth.isAuthenticated && (
+      {/* {auth.isAuthenticated && (
         <div>
           <h3>Bem vindo!</h3>
           <button onClick={handleLogout}>Logout</button>
         </div>
-      )}
+      )} */}
       {!auth.isAuthenticated && (
         <div id="login-container">
 
