@@ -15,6 +15,7 @@ function operacaoLenta() {
 
 const Encontros = ({ stateArray }) => {
   const toast = useToast();
+  const pointMessage = React.useRef();
 
   const connectGoogle = (point, oDate) => {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -59,20 +60,26 @@ const Encontros = ({ stateArray }) => {
       });
     });
   }
-  // console.log('keys', Object.keys(stateArray))
-  // console.log('entries', Object.entries(stateArray))
-  // console.log('values', Object.values(stateArray))
-  // console.log('fromEntries', Object.fromEntries(stateArray))
-  // console.log('fromEntries', Object.fromEntries(stateArray))
+
+  React.useEffect(() => {
+    const ulChildren = pointMessage.current;
+    // ?.nextElementSibling?.className
+    if (ulChildren?.nextElementSibling?.className === 'visible-points') {
+      // console.log(ulChildren.nextElementSibling.className)
+      ulChildren.remove()
+      console.log('removeu')
+    }
+
+  }, [stateArray])
 
   return (
     <>
-      <ul className='button-menu-items'>
+      <ul className='button-menu-items' >
         {stateArray.map(arr => (
           arr.length === 0 ?
-            <p className="visible-ops arrChild"><WarningIcon color="#52B9A7"/> Ops ! Sem pontos futuros.</p>
+            <p className="visible-ops arrChild"  ref={pointMessage}><WarningIcon color="#52B9A7"/> Ops ! Sem pontos futuros.</p>
           : 
-            <div className="visible-points arrChild">
+            <div className="visible-points" >
               {arr.map( point => (
                 <li key={point.id} className='hexa' onClick={() => connectGoogle(point, point.opening_date,)}>
                   <div className="kitHexagon">

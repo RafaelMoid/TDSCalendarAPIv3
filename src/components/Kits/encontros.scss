@@ -100,33 +100,23 @@
      display: none;
 }
 .visible-ops {
-    margin-left: 12px;
+    // margin-left: 12px;
     margin-bottom: 35px;
     min-width: 200px;
+    font-weight: 600;
     ~ p {
         // min-width: 100px;
         display: none;
     }
 }
 
-.button-menu-items {
-    
-    // p:nth-child(1) {
-    //     display: none;
-    // }
-}
-/* .hexaImg { 
-    max-height: 100px;
-    max-width: 100px;
-    top:50%;
-    left:50%;
-} */
 
 .button-menu-items {
     display: flex;
     width:100%;
     flex-direction: row;
     margin-top: 27px;
+    margin-left: 18px;
 
 }
 
