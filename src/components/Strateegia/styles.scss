@@ -1,4 +1,3 @@
-
   .Wrapper {
     font-family: Rubik;
     display: flex;
@@ -6,44 +5,42 @@
     align-items: row;
     position: relative;
     
+    .WrapperNav {
+      z-index: 999;
+      height:10%;
+    }
   }
-//}
 
-.firstLine {
-  margin-top: 4%;
-  width:58.5%;
-  display: column;
-  flex-direction: column;
-  margin-left: 11.5%;
-}
 
-.WrapperNav {
-  z-index: 999;
-  height:10%;
-}
-
-.introTxt {
-  display: flex;
-  flex-direction: row;
   
+  
+  main {
+    display: flex;
+    flex-direction: row;
+    
+    .firstLine {
+      margin-top: 4%;
+      width:58.5%;
+      display: column;
+      flex-direction: column;
+      margin-left: 5%;
+    }
+
+    .texto {
+      margin: 16px auto 80px auto;
+
+      font-family: Rubik;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: #535461;
+    }
+
 }
 
-.image1{
-  max-height: 300px;
-  max-width: 300px;
-  margin-top: 5%;
-  z-index: 100;
-}
 
-.togle{
-  color: black;
-  background-color: #52B9A7;
-  display: flex;
-  padding: 5px 10px 5px 10px;
-  outline: gray;
-  margin-left: 20%;
-
-}
 
 
 @media screen and (max-width: 720px) {
@@ -60,7 +57,7 @@
 
 @media screen and (max-width:600px) {
 
-.textoo h3 {
+.texto {
   font-size:10px;
 }
 

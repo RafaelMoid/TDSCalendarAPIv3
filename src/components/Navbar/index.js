@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import React,{ useContext, useState } from "react";
 import { AuthContext } from "../providers/auth";
 import { useHistory } from "react-router";
-import "./styles.scss";
+import {Link} from "react-router-dom";
+import { ReactComponent as WhiteLogo } from "../../assets/AllWhiteLogo.svg";
+import { ReactComponent as Logout } from "../../assets/logoutIcon.svg";
+import "./style.scss";
 
 
-const Navbar = ({ username }) => {
+const Navbar2 = ({ username }) => {
   const auth = useContext(AuthContext);
   const history = useHistory();
+
 
   const handleLogout = () => {
     auth.setApiToken("");
@@ -17,13 +21,20 @@ const Navbar = ({ username }) => {
   return (
     <>
       <div className="navbar">
-        <div className="logout">
-          <h3>Olá, {username}</h3>
-          <button onClick={handleLogout}>sair</button>
+        <div className="logo">
+          <WhiteLogo />
+          <h1>strateegia.calendar</h1>
+        </div>
+        <div className="logout" onClick={handleLogout}>
+          <span>sair</span>
+          <Logout />
         </div>
       </div>
+       
+      
+      
     </>
   );
 };
 
-export default Navbar;
+export default Navbar2;

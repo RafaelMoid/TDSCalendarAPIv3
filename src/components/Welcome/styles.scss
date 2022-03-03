@@ -1,0 +1,61 @@
+.welcome {
+    position: relative;
+    color: #3A4151;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+
+    strong {
+        color:#52B9A7 ;
+    }
+    
+}
+
+.linha {
+
+width: 770px;
+height: 0px;
+left: 32.1%;
+top: 20%;
+
+border: 0.1px solid #52B9A7;
+}
+
+@media screen and (max-width: 719px) {
+    .linha {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .welcome {
+        position: relative;
+        font-weight: 400;
+        color:#52B9A7 ;
+        
+    }
+    
+    .welcome h3 {
+        font-size: 30px;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+    }
+    
+    .ola{
+       
+        color: black;
+    }
+    
+    
+    .linha {
+    
+    width: 62%;
+    height: 0px;
+    left: 32.1%;
+    top: 20%;
+    
+    border: 0.1px solid #52B9A7;
+    }
+}

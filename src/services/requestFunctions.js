@@ -41,8 +41,18 @@ export const fetchUserProjects = async (token) => {
   return data;
 };
 
-export const fetchMapById = async (token) => {
-  const {data} = await api("/projects/v1/project/60e481ee9692e14e21c51261",
+export const fetchProjectById = async (token, id) => {
+  const { data } = await api(`/projects/v1/project/${id}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return data;
+}
+
+export const fetchMapById = async (token, id) => {
+  const {data} = await api(`/projects/v1/map/${id}`,
   {
     method: "GET", 
     headers: {
