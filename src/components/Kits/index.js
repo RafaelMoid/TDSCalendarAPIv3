@@ -1,6 +1,7 @@
 import React from "react";
 import ApiCalendar from 'react-google-calendar-api/src/ApiCalendar';
 import { useToast } from '@chakra-ui/react';
+import { WarningIcon } from '@chakra-ui/icons'
 import { ReactComponent as HexPoint } from '../../assets/hexPoint.svg';
 import "./encontros.scss";
 
@@ -58,24 +59,33 @@ const Encontros = ({ stateArray }) => {
       });
     });
   }
+  // console.log('keys', Object.keys(stateArray))
+  // console.log('entries', Object.entries(stateArray))
+  // console.log('values', Object.values(stateArray))
+  // console.log('fromEntries', Object.fromEntries(stateArray))
+  // console.log('fromEntries', Object.fromEntries(stateArray))
 
   return (
     <>
       <ul className='button-menu-items'>
-        {typeof stateArray !== 'string' ? stateArray.map(arr => (
-            arr.map( point => (
-            <li key={point.id} className='hexa' onClick={() => connectGoogle(point, point.opening_date,)}>
-              <div className="kitHexagon">
-                <HexPoint />
-                <div className="textStyle">
-                    {/* <span className='point-date'>{`${point.splitDate[0].slice(8, 10)}/${point.splitDate[0].slice(5, 7)}/${point.splitDate[0].slice(0, 4)}`}</span> */}
-                    <span className='point-date'>{point.splitDate[0]}</span>
-                    <span className='point-hour' defaultValue={point.id}> {point.splitDate[1].slice(0, 5)} </span>
-                </div>
-              </div>    
-            </li>
-          ))
-        )) : <p>{stateArray}</p>}
+        {stateArray.map(arr => (
+          arr.length === 0 ?
+            <p className="visible-ops arrChild"><WarningIcon color="#52B9A7"/> Ops ! Sem pontos futuros.</p>
+          : 
+            <div className="visible-points arrChild">
+              {arr.map( point => (
+                <li key={point.id} className='hexa' onClick={() => connectGoogle(point, point.opening_date,)}>
+                  <div className="kitHexagon">
+                    <HexPoint />
+                    <div className="textStyle">
+                      <span className='point-date'>{point.splitDate[0]}</span>
+                      <span className='point-hour' defaultValue={point.id}> {point.splitDate[1].slice(0, 5)} </span>
+                    </div>
+                  </div>    
+                </li>
+              ))}
+            </div>
+        ))}
       </ul>
     </>
   );

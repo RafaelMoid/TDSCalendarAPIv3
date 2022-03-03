@@ -93,10 +93,28 @@
     border-radius: 4px;
     position:absolute
 
+} 
+
+
+.visible-points ~ p {
+     display: none;
+}
+.visible-ops {
+    margin-left: 12px;
+    margin-bottom: 35px;
+    min-width: 200px;
+    ~ p {
+        // min-width: 100px;
+        display: none;
+    }
 }
 
-
-
+.button-menu-items {
+    
+    // p:nth-child(1) {
+    //     display: none;
+    // }
+}
 /* .hexaImg { 
     max-height: 100px;
     max-width: 100px;
